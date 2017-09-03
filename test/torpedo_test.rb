@@ -5,14 +5,20 @@ require './lib/torpedo'
 class TorpedoTest < MiniTest::Test
 
   def test_torpedo_exists
-    torpedo = Torpedo.new("A1")
+    torpedo = Torpedo.new("player 1", "A1")
 
     assert_instance_of Torpedo, torpedo
   end
 
   def test_torpedo_knows_its_position
-    torpedo = Torpedo.new("A3")
+    torpedo = Torpedo.new("player 1", "A3")
 
     assert_equal "A3", torpedo.position
+  end
+
+  def test_torpedo_knows_who_shot_it
+    torpedo = Torpedo.new("player 2", "B4")
+
+    assert_equal "player 2", torpedo.shooter
   end
 end
