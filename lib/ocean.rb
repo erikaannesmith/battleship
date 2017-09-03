@@ -1,6 +1,6 @@
 require './lib/nautical_square_inch'
 
-class GameBoard
+class Ocean
   attr_reader :inches
 
   COORDINATES =

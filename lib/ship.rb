@@ -1,3 +1,5 @@
+require './lib/Ocean.rb'
+
 class Ship
   attr_reader :coordinate_range
 
@@ -18,7 +20,7 @@ class Ship
     x_line = (bow[0]..stern[0])
     y_line = (bow[-1]..stern[-1])
 
-    GameBoard::COORDINATES.select do |coordinate|
+    Ocean::COORDINATES.select do |coordinate|
       x = coordinate[0]
       y = coordinate[-1]
 
