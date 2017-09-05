@@ -16,4 +16,12 @@ class GameStateTest < MiniTest::Test
 
     assert_equal [], gamestate.torpedoes
   end
+
+  def test_a_torpedo_can_be_fired
+    gamestate = GameState.new
+    gamestate.fire_torpedo("player 1", "A2")
+    positions = gamestate.torpedoes.map {|t| t.position}
+
+    assert_equal ["A2"], positions
+  end
 end

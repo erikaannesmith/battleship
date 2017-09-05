@@ -19,6 +19,6 @@ class TorpedoTest < MiniTest::Test
   def test_torpedo_knows_who_shot_it
     torpedo = Torpedo.new("player 2", "B4")
 
-    assert_equal "player 2", torpedo.shooter
+    assert_equal "player 2", torpedo.player
   end
 end

@@ -7,4 +7,8 @@ class GameState
     @torpedoes = []
   end
 
+  def fire_torpedo(player, position)
+    torpedo = Torpedo.new(player, position)
+    @torpedoes << torpedo
+  end
 end
