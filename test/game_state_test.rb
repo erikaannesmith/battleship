@@ -19,9 +19,28 @@ class GameStateTest < MiniTest::Test
 
   def test_a_torpedo_can_be_fired
     gamestate = GameState.new
-    gamestate.fire_torpedo("player 1", "A2")
+    gamestate.fire_torpedo("player", "A2")
     positions = gamestate.torpedoes.map {|t| t.position}
 
     assert_equal ["A2"], positions
+  end
+
+  def test_current_player_if_odd
+    gamestate = GameState.new
+    gamestate.fire_torpedo("player", "A3")
+    gamestate.fire_torpedo("computer", "A2")
+    gamestate.fire_torpedo("player", "B3")
+
+    assert_equal "computer", gamestate.current_player.name
+  end
+
+  def test_current_player_if_even
+    gamestate = GameState.new
+    gamestate.fire_torpedo("player", "A3")
+    gamestate.fire_torpedo("computer", "A2")
+    gamestate.fire_torpedo("player", "B3")
+    gamestate.fire_torpedo("computer", "D2")
+
+    assert_equal "player", gamestate.current_player.name
   end
 end
