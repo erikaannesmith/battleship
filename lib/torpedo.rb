@@ -1,9 +1,9 @@
 class Torpedo
-  attr_reader :position, :shooter
+  attr_reader :position, :player, :was_hit
 
-  def initialize(shooter, position)
-    @shooter = shooter
+  def initialize(player, position, was_hit)
+    @player = player
     @position = position
+    @was_hit = was_hit
   end
-
 end
