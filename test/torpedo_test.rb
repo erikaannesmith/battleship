@@ -21,4 +21,6 @@ class TorpedoTest < MiniTest::Test
 
     assert_equal "player 2", torpedo.player
   end
+
+  
 end

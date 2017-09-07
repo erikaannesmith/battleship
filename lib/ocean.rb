@@ -3,11 +3,10 @@ require './lib/nautical_square_inch'
 class Ocean
   attr_reader :inches
 
-  COORDINATES =
-    ["A1", "A2", "A3", "A4",
-    "B1", "B2", "B3", "B4",
-    "C1", "C2", "C3", "C4",
-    "D1", "D2", "D3", "D4"]
+
+  X_COORDS = "A".."D"
+  Y_COORDS = 1..4
+  COORDINATES = X_COORDS.to_a.product(Y_COORDS.to_a).map {|x,y| "#{x}#{y}"}
 
   def initialize
     @inches = COORDINATES.map {|space| NauticalSquareInch.new(space)}
