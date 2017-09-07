@@ -1,9 +1,9 @@
 class RandomCoordinateGeneratorTest < MiniTest::Test
 
-  def test_find_random_coordinate
+  def test_generate
     rcg = RandomCoordinateGenerator.new
 
-    assert Ocean::COORDINATES.include?(rcg.find_random_coordinate)
+    assert Ocean::COORDINATES.include?(rcg.generate)
   end
 
 end

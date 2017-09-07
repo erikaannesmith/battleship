@@ -1,30 +1,23 @@
-require './lib/Ocean.rb'
+require './lib/ocean'
+require './lib/coordinate_range'
 
 class Ship
   attr_reader :coordinate_range
 
-  def initialize(coordinate_range)
-    @coordinate_range = coordinate_range
+  def initialize(coord_string)
+    @coordinate_range = CoordinateRange.new(coord_string)
   end
 
   def occupies?(coordinate)
-    coordinates.include?(coordinate)
+    coordinate_range.include?(coordinate)
   end
 
-  private
+  def in_ocean?
+    Ocean::COORDINATES.include?(coordinate_range.bow) &&
+      Ocean::COORDINATES.include?(coordinate_range.stern)
+  end
 
-  def coordinates
-    split_coordinates = coordinate_range.split(" ")
-    bow = split_coordinates[0]
-    stern = split_coordinates[-1]
-    x_line = (bow[0]..stern[0])
-    y_line = (bow[-1]..stern[-1])
-
-    Ocean::COORDINATES.select do |coordinate|
-      x = coordinate[0]
-      y = coordinate[-1]
-
-      x_line.include?(x) && y_line.include?(y)
-    end
+  def ship_length
+    coordinate_range.length
   end
 end

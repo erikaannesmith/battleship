@@ -1,6 +1,6 @@
 require './lib/ui/ship_placement_screen'
 
-class Introduction
+class IntroductionScreen
 
   def start!
     puts "Welcome to BATTLESHIP"
@@ -18,7 +18,7 @@ class Introduction
   def handle_answer(answer = gets.chomp)
     if answer == "p"
       puts "Let's begin!"
-      computer_place_ships
+      ShipPlacementScreen.new.start!
     elsif answer == "i"
       puts "Here are some instructions!"
       handle_answer

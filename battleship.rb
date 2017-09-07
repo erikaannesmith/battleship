@@ -1,3 +1,5 @@
-require './lib/ui/introduction'
+require './lib/ui/introduction_screen'
+require './lib/ui/game_screen'
+require './lib/ship'
 
-Introduction.new.start!
+IntroductionScreen.new.start!

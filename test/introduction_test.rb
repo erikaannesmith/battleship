@@ -5,9 +5,9 @@ require './lib/ui/introduction_screen'
 class IntroductionTest < MiniTest::Test
 
   def test_the_introduction_exists
-    intro = Introduction.new
+    intro = IntroductionScreen.new
 
-    assert_instance_of Introduction, intro
+    assert_instance_of IntroductionScreen, intro
   end
 
 end
